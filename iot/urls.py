@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from interact.views import index
+from interact.views import index,index1,motion,kill
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', index,name='index'),
+    url(r'^index/', index1,name='index1'),
+    url(r'^page/', index,name='index'),
+    url(r'^motion/', motion,name='motion'),
+    url(r'^kill/', kill,name='kill'),
+    
+    #url(r'^index/', index,name='index'),
 ]

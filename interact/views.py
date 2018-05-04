@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django import forms
 from .forms import Inputlog
 from django.core.mail import EmailMessage
-
+import os
 # Create your views here.
 
 
@@ -36,5 +36,27 @@ def index(request):
              print ("On the light")
            
     return render(request, 'page.html', {'user_form': user_form1,'msg':msg })
+
+def index1(request):
+         return render(request, 'index.html', {
+           #user_form
+              })
+def motion(request):
+     cmd = "python D:/Map_project/basic-motion-detection/motion_detector.py"
+
+     os.system(cmd)  # returns the exit code in unix
+     
+     return render(request, 'motion.html', {
+           #user_form
+              })
+
+def kill(request):
+     cmd = "pkill -f D:/Map_project/basic-motion-detection/motion_detector.py"
+
+     os.system(cmd)  # returns the exit code in unix
+     
+     return render(request, 'index.html', {
+           #user_form
+              })
 
 

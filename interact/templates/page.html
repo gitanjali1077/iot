@@ -1,14 +1,46 @@
+{% load staticfiles %} 
+
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+body  {
+    background-image: url("raspi.png");
+    background-color: #cccccc;
+}
+</style>
+<body>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-7">
 
 <!-- templates/home.html-->
 {% csrf_token %}
 {% block title %}<h1 style="text-align: center">Light Control</h1>{% endblock %}
 
 {% block content %}
-
 <form method="post" >
  {% csrf_token %}
-<input type="text" name="light">
-<input type="submit" value="submit" >
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Light Mode</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="light">
+     </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {{msg}}
 {% endblock %}
+
+
+
+</div>
+  <div class="col-sm-2"></div>
+</div>
+
+
+</body>
